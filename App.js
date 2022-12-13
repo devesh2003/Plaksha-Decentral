@@ -1,8 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ImageBackground, SafeAreaView, ScrollView } from 'react-native';
+import InfoBlock from './components/InfoBlock';
+import InfoBlockVertical from './components/InfoBlockVertical';
 import Announcements from './screens/Announcements';
+import Committes from './screens/Committes';
 import GetStarted from './screens/GetStarted';
+import GoingOut from './screens/GoingOut';
+import Home from './screens/Home';
+import ImportantContacts from './screens/ImportantContacts';
 import InfoDetails from './screens/InfoDetails';
+import Mess from './screens/Mess';
+// import OPEN from './screens/OPEN';
 import StudentAnnouncements from './screens/StudentAnnouncements';
 
 export default function App() {
@@ -15,7 +23,13 @@ export default function App() {
         {/* <Announcements /> */}
         {/* <GetStarted /> */}
         {/* <StudentAnnouncements /> */}
-        <InfoDetails />
+        {/* <InfoDetails /> */}
+        {/* <Home /> */}
+        {/* <OPEN /> */}
+        {/* <Committes /> */}
+        {/* <ImportantContacts /> */}
+        {/* <Mess /> */}
+        <GoingOut />
       </ScrollView>
     </SafeAreaView>
   );

@@ -6,8 +6,25 @@ import { ImageBackground } from "react-native";
 import SearchBar from "../components/SearchBar";
 import InfoBlock from "../components/InfoBlock";
 import Rasa from "../components/icons/Rasa";
+import MessBoy from "../components/icons/MessBoy";
+import InfoBlockVertical from "../components/InfoBlockVertical";
 
-function Link() {
+const links = [
+    {
+        name: "TAs",
+    },
+    {
+        name: "Maintainance Cell",
+    },
+    {
+        name: "House Keeping",
+    },
+    {
+        name: "Admin Team",
+    },
+]
+
+function Link(props) {
     return (
         <TouchableOpacity>
             <View style={{
@@ -24,7 +41,7 @@ function Link() {
                     fontSize: 24,
                     fontWeight: "600",
                 }}>
-                    SIUUUU
+                    {props.name}
                 </Text>
 
             </View>
@@ -32,7 +49,7 @@ function Link() {
     )
 }
 
-function InfoDetails(props) {
+function Mess(props) {
     return (
         <View style={{
             width: "100%",
@@ -49,22 +66,24 @@ function InfoDetails(props) {
             </View>
 
             <View style={{
-                position:"absolute"
+                position: "absolute",
+                zIndex: 1,
             }}>
-                <Rasa />
+                <MessBoy />
             </View>
 
             <View style={{
                 position: "absolute",
-                right: 70,
+                right: 50,
                 top: 56,
             }}>
                 <Text style={{
-                    fontSize:36,
+                    fontSize: 36,
                     color: "white",
+                    letterSpacing: 1,
+                    textAlign: "right",
                 }}>
-                    RASA {"\n"} 
-                    DRIVE
+                    Mess
                 </Text>
             </View>
 
@@ -75,12 +94,12 @@ function InfoDetails(props) {
                 marginTop: 200,
                 height: "100%"
             }}>
-                <View style={{
+                {/* <View style={{
                     alignSelf: "center",
                     marginBottom: 33
                 }}>
                     <SearchBar />
-                </View>
+                </View> */}
 
                 <View style={{
                     height: "100%",
@@ -90,17 +109,17 @@ function InfoDetails(props) {
                 }}>
                     <View style={{
                         display: "flex",
-                        flexDirection: "column",
+                        flexDirection: "row",
                         backgroundColor: "#585B84",
-                        marginTop: 58,
+                        marginTop: 120,
+                        justifyContent: "space-evenly",
+                        marginBottom: 53
                     }}>
-                        <Link />
-                        <Link />
-                        <Link />
-                        <Link />
-                        <Link />
-                        <Link />
+                        <InfoBlockVertical name={"Menu"} />
+                        <InfoBlockVertical name={"Feedback"} />
                     </View>
+
+                    <Link name={"Contact Mess Committee Head"} />
                 </View>
             </View>
         </View>
@@ -108,4 +127,4 @@ function InfoDetails(props) {
     )
 }
 
-export default InfoDetails;
+export default Mess;

@@ -5,9 +5,24 @@ import GirlSitting from "../components/icons/GirlSitting";
 import { ImageBackground } from "react-native";
 import SearchBar from "../components/SearchBar";
 import InfoBlock from "../components/InfoBlock";
-import Rasa from "../components/icons/Rasa";
+import ThreeChildren from "../components/icons/ThreeChildren";
 
-function Link() {
+const links = [
+    {
+        name: "Student Council",
+    },
+    {
+        name: "Mess Committee",
+    },
+    {
+        name: "POSH Committee",
+    },
+    {
+        name: "Anti-Ragging Squad",
+    },
+]
+
+function Link(props) {
     return (
         <TouchableOpacity>
             <View style={{
@@ -24,7 +39,7 @@ function Link() {
                     fontSize: 24,
                     fontWeight: "600",
                 }}>
-                    SIUUUU
+                    {props.name }
                 </Text>
 
             </View>
@@ -32,7 +47,7 @@ function Link() {
     )
 }
 
-function InfoDetails(props) {
+function Committees(props) {
     return (
         <View style={{
             width: "100%",
@@ -49,22 +64,24 @@ function InfoDetails(props) {
             </View>
 
             <View style={{
-                position:"absolute"
+                position:"absolute",
+                zIndex: 1,
+                top: 168
             }}>
-                <Rasa />
+                {/* <Rasa /> */}
+                <ThreeChildren />
             </View>
 
             <View style={{
                 position: "absolute",
-                right: 70,
-                top: 56,
+                right: 50,
+                top: 130,
             }}>
                 <Text style={{
                     fontSize:36,
                     color: "white",
                 }}>
-                    RASA {"\n"} 
-                    DRIVE
+                    Committees
                 </Text>
             </View>
 
@@ -72,15 +89,15 @@ function InfoDetails(props) {
                 // backgroundColor: "white",
                 display: "flex",
                 flexDirection: "column",
-                marginTop: 200,
+                marginTop: 276,
                 height: "100%"
             }}>
-                <View style={{
+                {/* <View style={{
                     alignSelf: "center",
                     marginBottom: 33
                 }}>
                     <SearchBar />
-                </View>
+                </View> */}
 
                 <View style={{
                     height: "100%",
@@ -92,14 +109,13 @@ function InfoDetails(props) {
                         display: "flex",
                         flexDirection: "column",
                         backgroundColor: "#585B84",
-                        marginTop: 58,
+                        marginTop: 178,
                     }}>
-                        <Link />
-                        <Link />
-                        <Link />
-                        <Link />
-                        <Link />
-                        <Link />
+                        {links.map((link) => {
+                            return (
+                                <Link name={link.name} />
+                            )
+                        }) }
                     </View>
                 </View>
             </View>
@@ -108,4 +124,4 @@ function InfoDetails(props) {
     )
 }
 
-export default InfoDetails;
+export default Committees;

@@ -6,8 +6,24 @@ import { ImageBackground } from "react-native";
 import SearchBar from "../components/SearchBar";
 import InfoBlock from "../components/InfoBlock";
 import Rasa from "../components/icons/Rasa";
+import Phone from "../components/icons/Phone";
 
-function Link() {
+const links = [
+    {
+        name: "TAs",
+    },
+    {
+        name: "Maintainance Cell",
+    },
+    {
+        name: "House Keeping",
+    },
+    {
+        name: "Admin Team",
+    },
+]
+
+function Link(props) {
     return (
         <TouchableOpacity>
             <View style={{
@@ -24,7 +40,7 @@ function Link() {
                     fontSize: 24,
                     fontWeight: "600",
                 }}>
-                    SIUUUU
+                    {props.name }
                 </Text>
 
             </View>
@@ -32,7 +48,7 @@ function Link() {
     )
 }
 
-function InfoDetails(props) {
+function ImportantContacts(props) {
     return (
         <View style={{
             width: "100%",
@@ -49,22 +65,27 @@ function InfoDetails(props) {
             </View>
 
             <View style={{
-                position:"absolute"
+                position:"absolute",
+                zIndex: 1,
             }}>
-                <Rasa />
+                {/* <Rasa /> */}
+                {/* <ThreeChildren /> */}
+                <Phone />
             </View>
 
             <View style={{
                 position: "absolute",
-                right: 70,
+                right: 50,
                 top: 56,
             }}>
                 <Text style={{
                     fontSize:36,
                     color: "white",
+                    letterSpacing: 4,
+                    textAlign: "right",
                 }}>
-                    RASA {"\n"} 
-                    DRIVE
+                    Important {"\n"}  
+                    Contacts
                 </Text>
             </View>
 
@@ -75,12 +96,12 @@ function InfoDetails(props) {
                 marginTop: 200,
                 height: "100%"
             }}>
-                <View style={{
+                {/* <View style={{
                     alignSelf: "center",
                     marginBottom: 33
                 }}>
                     <SearchBar />
-                </View>
+                </View> */}
 
                 <View style={{
                     height: "100%",
@@ -94,12 +115,11 @@ function InfoDetails(props) {
                         backgroundColor: "#585B84",
                         marginTop: 58,
                     }}>
-                        <Link />
-                        <Link />
-                        <Link />
-                        <Link />
-                        <Link />
-                        <Link />
+                        {links.map((link) => {
+                            return (
+                                <Link name={link.name} />
+                            )
+                        }) }
                     </View>
                 </View>
             </View>
@@ -108,4 +128,4 @@ function InfoDetails(props) {
     )
 }
 
-export default InfoDetails;
+export default ImportantContacts;
