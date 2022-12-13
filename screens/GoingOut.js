@@ -9,6 +9,9 @@ import Rasa from "../components/icons/Rasa";
 import MessBoy from "../components/icons/MessBoy";
 import InfoBlockVertical from "../components/InfoBlockVertical";
 import GirlOut from "../components/icons/GirlOut";
+import PlacesButton from "../components/icons/PlacesButton";
+import Map from "../components/icons/Map";
+import Location from "../components/icons/Location";
 
 const links = [
     {
@@ -76,7 +79,7 @@ function GoingOut(props) {
 
             <View style={{
                 position: "absolute",
-                right: 50,
+                right: 30,
                 top: 56,
             }}>
                 <Text style={{
@@ -85,7 +88,7 @@ function GoingOut(props) {
                     letterSpacing: 1,
                     textAlign: "right",
                 }}>
-                    Tussi Jaa {"\n"} 
+                    Tussi Jaa {"\n"}
                     Rahe Ho?
                 </Text>
             </View>
@@ -122,7 +125,29 @@ function GoingOut(props) {
                         <InfoBlockVertical name={"Shuttle"} />
                     </View>
 
-                    <Link name={"Contact Mess Committee Head"} />
+                    <TouchableOpacity>
+                        <View style={{
+                            display: "flex",
+                            alignItems: "center",
+                        }}>
+                            <PlacesButton />
+                        </View>
+                    </TouchableOpacity>
+
+                    <View style={{
+                        display: "flex",
+                        alignItems: "center",
+                        marginTop: 38
+                    }}>
+                        <Map />
+                    </View>
+
+                    <View style={{
+                        position: "absolute",
+                        bottom: 0,
+                    }}> 
+                        <Location />
+                    </View>
                 </View>
             </View>
         </View>
