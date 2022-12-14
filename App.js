@@ -9,9 +9,12 @@ import GoingOut from './screens/GoingOut';
 import Home from './screens/Home';
 import ImportantContacts from './screens/ImportantContacts';
 import InfoDetails from './screens/InfoDetails';
+import LostAndFound from './screens/LostAndFound';
 import Mess from './screens/Mess';
+import SignUp from './screens/SignUp';
 // import OPEN from './screens/OPEN';
 import StudentAnnouncements from './screens/StudentAnnouncements';
+import Timetable from './screens/Timetable';
 
 export default function App() {
   return (
@@ -29,7 +32,10 @@ export default function App() {
         {/* <Committes /> */}
         {/* <ImportantContacts /> */}
         {/* <Mess /> */}
-        <GoingOut />
+        {/* <GoingOut /> */}
+        {/* <Timetable /> */}
+        {/* <SignUp /> */}
+        <LostAndFound />
       </ScrollView>
     </SafeAreaView>
   );

@@ -6,11 +6,12 @@ function InfoBlockVertical(props) {
             <View style={{
                 height: 224,
                 width: 168,
-                backgroundColor: "#F3CB7E",
+                backgroundColor: "#637FA4",
                 borderRadius: 20,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                opacity: 0.8,
             }}>
                 <Text style={{
                     color: "white",

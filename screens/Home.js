@@ -2,6 +2,10 @@ import { View, Text, TouchableOpacity } from "react-native";
 import Background from "../components/icons/Background";
 import Notifs from "../components/icons/Notifs";
 import Reset from "../components/icons/Reset";
+import InfoBlockVertical from "../components/InfoBlockVertical";
+import Book from "../components/icons/Book";
+import CatBookShelf from "../components/icons/CatBookShelf";
+import BookFloating from "../components/icons/BookFloating"
 
 const DataGrid = () => {
     return (
@@ -55,6 +59,14 @@ function Home(props) {
             </View>
 
             <View style={{
+                position: "absolute",
+                right: -2,
+                top: 200
+            }}>
+                <Book />
+            </View>
+
+            <View style={{
                 display: "flex",
                 justifyContent: "center",
                 marginTop: 75,
@@ -74,13 +86,63 @@ function Home(props) {
                 }}>
                     What's happening {"\n"}
                     around you?
-                </Text>  
+                </Text>
             </View>
 
-            <TouchableOpacity>
+            <TouchableOpacity style={{
+                marginTop: 40
+            }}>
                 <Announcements />
             </TouchableOpacity>
 
+            <View style={{
+                display: "flex",
+                marginTop: 124,
+                flexDirection: "row",
+                justifyContent: "space-evenly",
+            }}>
+                <InfoBlockVertical name={"Timetable"} />
+                <InfoBlockVertical name={"Going Out?"} />
+            </View>
+
+            <View style={{
+                display: "flex",
+                marginTop: 20,
+                flexDirection: "row",
+                justifyContent: "space-evenly",
+            }}>
+                <InfoBlockVertical name={"Committee"} />
+                <InfoBlockVertical name={"RASA Drive"} />
+            </View>
+
+            <View style={{
+                display: "flex",
+                marginTop: 20,
+                flexDirection: "row",
+                justifyContent: "space-evenly",
+                marginBottom: 450
+            }}>
+                <InfoBlockVertical name={"Contacts"} />
+                <InfoBlockVertical name={"Mess"} />
+            </View>
+
+            <View style={{
+                position: "absolute",
+                bottom: 200,
+                right: 0,
+                zIndex: -1
+            }}>
+                <CatBookShelf />
+            </View>
+
+            <View style={{
+                position: "absolute",
+                bottom: 0,
+                left: -30,
+                zIndex: -1
+            }}>
+                <BookFloating />
+            </View>
 
         </View>
     )
