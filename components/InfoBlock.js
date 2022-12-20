@@ -1,8 +1,12 @@
+import { useNavigation } from "@react-navigation/native";
 import { View, Text, TouchableOpacity } from "react-native"
 
 function InfoBlock(props) {
+    const navigation = useNavigation()
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => {
+            navigation.navigate("AnnouncementDetails",{test: "DADDY"})
+        }}>
             <View style={{
                 marginVertical: 20,
                 backgroundColor: "#656989",

@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, TouchableOpacity, SafeAreaView } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, Linking } from "react-native";
 import Background from "../components/icons/Background";
 import Reset from "../components/icons/Reset";
 import GirlSitting from "../components/icons/GirlSitting";
@@ -7,16 +7,41 @@ import SearchBar from "../components/SearchBar";
 import InfoBlock from "../components/InfoBlock";
 import Rasa from "../components/icons/Rasa";
 
-function Link() {
+const links = [
+    {
+        name: "Art Fair",
+        url: "https://plakshauniversity1-my.sharepoint.com/:f:/g/personal/anshul_rana_plaksha_edu_in/EjdofMLd7ptJiX0VIpimcaQBV31WKNQxyZxlIqkaXTDRLQ?e=ExMzrc"
+    },
+    {
+        name: "Plakshathon 2022",
+        url: "https://plakshauniversity1-my.sharepoint.com/:f:/g/personal/shaurya_mann_plaksha_edu_in/EgINcv5GNdJEmyTA-i4lXFQB2B4LkbBfpTycA_pE3ELRZQ?e=xsAppx"
+    },
+    {
+        name: "Blood Drive",
+        url: "https://plakshauniversity1-my.sharepoint.com/:f:/g/personal/avishi_rajgarhia_plaksha_edu_in/Es-ZQTGfyLZNs02hXXYIL5sBrsUANxYCHNbp31V6UrwF_A?e=w6tlhF"
+    },
+    {
+        name: "POSH",
+        url: "https://plakshauniversity1-my.sharepoint.com/:b:/r/personal/anshuman_bhuchar_plaksha_edu_in/Documents/Policies/Other%20Policies/my-Plaksha/Plaksha%20POSH%20policy%20ver4.doc.pdf?csf=1&web=1&e=cUFXrP"
+    },
+    {
+        name: "Freshers '22",
+        url: "http://google.com"
+    }
+]
+
+function Link(props) {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => {
+            props.link ? Linking.openURL(props.link) : null
+        }}>
             <View style={{
                 backgroundColor: "#637FA4",
                 height: 80,
                 alignItems: "left",
                 justifyContent: "center",
                 paddingLeft: 20,
-                marginVertical: 20
+                marginVertical: 15
             }}>
 
                 <Text style={{
@@ -24,7 +49,7 @@ function Link() {
                     fontSize: 24,
                     fontWeight: "600",
                 }}>
-                    SIUUUU
+                    {props.name}
                 </Text>
 
             </View>
@@ -34,34 +59,28 @@ function Link() {
 
 function InfoDetails(props) {
     return (
-        <View style={{
+        <ScrollView style={{
             width: "100%",
+            backgroundColor: "#7FB8C0",
         }}>
-            <View style={{
-                flex: 1,
-                top: 0,
-                bottom: 0,
-                // backgroundColor: "white",
-                position: "absolute"
-            }}>
-                <Background />
-
-            </View>
 
             <View style={{
-                position:"absolute"
+                position:"absolute",
+                // height: "100%",
+                top: 30*2,
             }}>
                 <Rasa />
             </View>
 
             <View style={{
                 position: "absolute",
-                right: 70,
-                top: 56,
+                right: 50,
+                top: 75,
             }}>
                 <Text style={{
                     fontSize:36,
                     color: "white",
+                    textAlign: "right"
                 }}>
                     RASA {"\n"} 
                     DRIVE
@@ -77,7 +96,8 @@ function InfoDetails(props) {
             }}>
                 <View style={{
                     alignSelf: "center",
-                    marginBottom: 33
+                    marginBottom: 33,
+                    opacity: 0.6
                 }}>
                     <SearchBar />
                 </View>
@@ -94,16 +114,15 @@ function InfoDetails(props) {
                         backgroundColor: "#585B84",
                         marginTop: 58,
                     }}>
-                        <Link />
-                        <Link />
-                        <Link />
-                        <Link />
-                        <Link />
-                        <Link />
+                        {links.map( (link) => {
+                            return (
+                            <Link name={link.name} link={link.url} />
+                            )
+                        } )}
                     </View>
                 </View>
             </View>
-        </View>
+        </ScrollView>
 
     )
 }

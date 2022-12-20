@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, TouchableOpacity, SafeAreaView } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, Linking } from "react-native";
 import Background from "../components/icons/Background";
 import Reset from "../components/icons/Reset";
 import GirlSitting from "../components/icons/GirlSitting";
@@ -9,22 +9,28 @@ import ThreeChildren from "../components/icons/ThreeChildren";
 
 const links = [
     {
-        name: "Student Council",
+        name: "Academic Office",
+        url: "https://plakshauniversity1.sharepoint.com/sites/academic-affairs/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2Facademic%2Daffairs%2FShared%20Documents%2FUG%20Program%20Academic%20Policy%202021%2D22%5FVersion%202%2Epdf&parent=%2Fsites%2Facademic%2Daffairs%2FShared%20Documents&p=true&ct=1667283501260&or=OWA%2DNT&cid=8aedfef0%2D2a51%2Dd0f6%2Dd3b7%2D7f445f92c844&ga=1 "
     },
     {
         name: "Mess Committee",
+        url: ""
     },
     {
         name: "POSH Committee",
+        url: ""
     },
     {
         name: "Anti-Ragging Squad",
+        url: ""
     },
 ]
 
 function Link(props) {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => {
+            props.link ? Linking.openURL(props.link) : null
+        }}>
             <View style={{
                 backgroundColor: "#637FA4",
                 height: 80,
@@ -49,24 +55,16 @@ function Link(props) {
 
 function Committees(props) {
     return (
-        <View style={{
+        <ScrollView style={{
             width: "100%",
+            backgroundColor: "#789788",
         }}>
-            <View style={{
-                flex: 1,
-                top: 0,
-                bottom: 0,
-                // backgroundColor: "white",
-                position: "absolute"
-            }}>
-                <Background />
-
-            </View>
 
             <View style={{
                 position:"absolute",
                 zIndex: 1,
-                top: 168
+                top: 128,
+                left: 10
             }}>
                 {/* <Rasa /> */}
                 <ThreeChildren />
@@ -75,13 +73,15 @@ function Committees(props) {
             <View style={{
                 position: "absolute",
                 right: 50,
-                top: 130,
+                top: 100,
             }}>
                 <Text style={{
                     fontSize:36,
                     color: "white",
+                    textAlign: "right"
                 }}>
-                    Committees
+                    Committee {"\n"}
+                    Policies
                 </Text>
             </View>
 
@@ -109,17 +109,17 @@ function Committees(props) {
                         display: "flex",
                         flexDirection: "column",
                         backgroundColor: "#585B84",
-                        marginTop: 178,
+                        marginTop: 138,
                     }}>
                         {links.map((link) => {
                             return (
-                                <Link name={link.name} />
+                                <Link name={link.name} link={link.url} />
                             )
                         }) }
                     </View>
                 </View>
             </View>
-        </View>
+        </ScrollView>
 
     )
 }

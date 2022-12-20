@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import Background from "../components/icons/Background";
 import Notifs from "../components/icons/Notifs";
 import Reset from "../components/icons/Reset";
@@ -6,6 +6,7 @@ import InfoBlockVertical from "../components/InfoBlockVertical";
 import Book from "../components/icons/Book";
 import CatBookShelf from "../components/icons/CatBookShelf";
 import BookFloating from "../components/icons/BookFloating"
+import { useNavigation } from "@react-navigation/native";
 
 const DataGrid = () => {
     return (
@@ -17,6 +18,17 @@ const DataGrid = () => {
         </View>
     )
 }
+
+const HomeLinks = [
+    "Timetable",
+    "Going Out?",
+    "Committes",
+    "Contacts",
+    "RASA Drive",
+    "Mess",
+    "Lost",
+    "Found"
+]
 
 const Announcements = () => {
     return (
@@ -50,18 +62,23 @@ const Announcements = () => {
 }
 
 function Home(props) {
+    const navigation = useNavigation()
+
     return (
-        <View>
+        <ScrollView style={{
+            flex: 1,
+            backgroundColor: "#474C72",
+          }}>
             <View style={{
                 position: "absolute"
             }}>
-                <Background />
+                {/* <Background /> */}
             </View>
 
             <View style={{
                 position: "absolute",
                 right: -2,
-                top: 200
+                top: 175
             }}>
                 <Book />
             </View>
@@ -69,7 +86,7 @@ function Home(props) {
             <View style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: 75,
+                marginTop: 85,
                 marginLeft: 35
             }}>
                 <Text style={{
@@ -90,12 +107,36 @@ function Home(props) {
             </View>
 
             <TouchableOpacity style={{
-                marginTop: 40
-            }}>
+                marginTop: 20
+            }} onPress={ () => {
+                navigation.navigate("Announcements")
+            } }>
                 <Announcements />
             </TouchableOpacity>
 
-            <View style={{
+            <ScrollView horizontal style={{
+                marginTop: 54
+            }} persistentScrollbar={true}
+                endFillColor="white"
+                overScrollMode="never"
+            >
+                <View  style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-evenly",
+            }}>
+                {
+                    HomeLinks.map((link, index) => {
+                        return (
+                            <InfoBlockVertical name={link} key={index} nav={link} />
+                            // </TouchableOpacity>
+                        )
+                    })
+                }
+                </View>
+            </ScrollView>
+
+            {/* <View style={{
                 display: "flex",
                 marginTop: 124,
                 flexDirection: "row",
@@ -124,15 +165,16 @@ function Home(props) {
             }}>
                 <InfoBlockVertical name={"Contacts"} />
                 <InfoBlockVertical name={"Mess"} />
-            </View>
+            </View> */}
 
             <View style={{
                 position: "absolute",
-                bottom: 200,
-                right: 0,
+                bottom: -40*5,
+                left: 0,
                 zIndex: -1
             }}>
-                <CatBookShelf />
+                {/* <BookFloating /> */}
+                {/* <CatBookShelf /> */}
             </View>
 
             <View style={{
@@ -141,10 +183,10 @@ function Home(props) {
                 left: -30,
                 zIndex: -1
             }}>
-                <BookFloating />
+                {/* <BookFloating /> */}
             </View>
 
-        </View>
+        </ScrollView>
     )
 }
 

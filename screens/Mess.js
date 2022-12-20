@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, TouchableOpacity, SafeAreaView } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, Linking } from "react-native";
 import Background from "../components/icons/Background";
 import Reset from "../components/icons/Reset";
 import GirlSitting from "../components/icons/GirlSitting";
@@ -26,14 +26,17 @@ const links = [
 
 function Link(props) {
     return (
-        <TouchableOpacity>
-            <View style={{
+        <TouchableOpacity onPress={() => {
+            Linking.openURL("tel:9991151095")
+        }}>
+            <View 
+            style={{
                 backgroundColor: "#637FA4",
                 height: 80,
                 alignItems: "left",
                 justifyContent: "center",
                 paddingLeft: 20,
-                marginVertical: 20
+                marginVertical: 12
             }}>
 
                 <Text style={{
@@ -51,8 +54,10 @@ function Link(props) {
 
 function Mess(props) {
     return (
-        <View style={{
+        <ScrollView style={{
             width: "100%",
+            backgroundColor: "#F8C870",
+            paddingTop: 60,
         }}>
             <View style={{
                 flex: 1,
@@ -61,7 +66,7 @@ function Mess(props) {
                 // backgroundColor: "white",
                 position: "absolute"
             }}>
-                <Background />
+                {/* <Background /> */}
 
             </View>
 
@@ -75,7 +80,7 @@ function Mess(props) {
             <View style={{
                 position: "absolute",
                 right: 50,
-                top: 56,
+                top: 35,
             }}>
                 <Text style={{
                     fontSize: 36,
@@ -111,18 +116,19 @@ function Mess(props) {
                         display: "flex",
                         flexDirection: "row",
                         backgroundColor: "#585B84",
-                        marginTop: 120,
+                        marginTop: 100,
                         justifyContent: "space-evenly",
-                        marginBottom: 53
+                        marginBottom: 10*2
                     }}>
                         <InfoBlockVertical name={"Menu"} />
-                        <InfoBlockVertical name={"Feedback"} />
+                        <InfoBlockVertical name={"Feedback"} link={"https://forms.office.com/pages/responsepage.aspx?id=M4x5RUMbAUy_PtjWVdM4nAVSD91UgndOhPDvMD8uV1hUNE5XRlRXR1Y1T01TOUpJQzBIWUVWM0VTTS4u"}/>
                     </View>
-
+                    
                     <Link name={"Contact Mess Committee Head"} />
+                    <Link name={"Book Combo Meal"} />
                 </View>
             </View>
-        </View>
+        </ScrollView>
 
     )
 }

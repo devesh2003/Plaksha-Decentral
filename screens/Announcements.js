@@ -1,11 +1,20 @@
-import { View, Text, Image, ImageBackground, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { View, Text, Image, ImageBackground, TouchableOpacity, ScrollView } from "react-native";
 import Girl from "../components/icons/Girl";
 import Reset from "../components/icons/Reset";
 import InfoBlock from "../components/InfoBlock";
 import SearchBar from "../components/SearchBar";
 
 function Announcements(props) {
+
+    const navigation = useNavigation()
+
     return (
+        <ScrollView style={{
+            flex: 1,
+            paddingTop: 40,
+            backgroundColor: "#474C72",
+        }}>
         <View style={{
             flex: 1,
             paddingTop: 40,
@@ -55,12 +64,16 @@ function Announcements(props) {
                 // backgroundColor: "black",
                 alignSelf: "left",
                 zIndex: -1,
-                width: "100%"
+                width: "100%",
             }}>
                 <Girl />
             </View>
 
+            <View style={{
+                opacity: 0.8
+            }}>
             <SearchBar />
+            </View>
 
             <View style={{
                 marginTop: 26,
@@ -75,6 +88,7 @@ function Announcements(props) {
                 <InfoBlock readMore={true}/>
             </View>
         </View>
+        </ScrollView>
     )
 }
 

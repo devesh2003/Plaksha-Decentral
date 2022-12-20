@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, TouchableOpacity, SafeAreaView } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, Linking } from "react-native";
 import Background from "../components/icons/Background";
 import Reset from "../components/icons/Reset";
 import GirlSitting from "../components/icons/GirlSitting";
@@ -55,8 +55,9 @@ function Link(props) {
 
 function GoingOut(props) {
     return (
-        <View style={{
+        <ScrollView style={{
             width: "100%",
+            backgroundColor: "#474C72",
         }}>
             <View style={{
                 flex: 1,
@@ -121,11 +122,14 @@ function GoingOut(props) {
                         justifyContent: "space-evenly",
                         marginBottom: 53
                     }}>
-                        <InfoBlockVertical name={"Night Outpass"} />
-                        <InfoBlockVertical name={"Shuttle"} />
+                        <InfoBlockVertical name={"Night Outpass"} link={"https://forms.office.com/Pages/ResponsePage.aspx?id=M4x5RUMbAUy_PtjWVdM4nByc3rVuS3NLutiAqs-TwJlURVA2TzFDN0RSNlg3V1NTVVVPWEZFRUlBMy4u "}/>
+                        <InfoBlockVertical name={"Shuttle (Saudagar Singh)"} link={"tel:9463495189"} />
                     </View>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {
+                        // Link to trip advisor
+                        Linking.openURL("https://www.tripadvisor.in/Attractions-g297596-Activities-Chandigarh.html")
+                    }}>
                         <View style={{
                             display: "flex",
                             alignItems: "center",
@@ -150,7 +154,7 @@ function GoingOut(props) {
                     </View>
                 </View>
             </View>
-        </View>
+        </ScrollView>
 
     )
 }

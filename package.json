@@ -9,13 +9,18 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-navigation/native": "^6.1.1",
+    "@react-navigation/native-stack": "^6.9.6",
     "expo": "~47.0.6",
     "expo-status-bar": "~1.4.2",
     "expo-three": "^7.0.0",
     "react": "18.1.0",
     "react-native": "0.70.5",
     "react-native-linear-gradient": "^2.6.2",
-    "react-native-svg": "^13.6.0"
+    "react-native-screen": "^1.0.1",
+    "react-native-screens": "^3.18.2",
+    "react-native-svg": "^13.6.0",
+    "react-navigation": "^4.4.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

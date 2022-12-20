@@ -10,25 +10,27 @@ import BookStack from "../components/icons/BookStack";
 
 function Timetable(props) {
     return (
-        <View style={{
-            width: "100%",
-        }}>
-            <View style={{
+        <ScrollView style={{
+            flex: 1,
+            backgroundColor: "#F37E7E"
+          }}>
+            {/* <View style={{
                 flex: 1,
                 top: 0,
                 bottom: 0,
                 // backgroundColor: "white",
+                backgroundColor: "#474C72",
                 position: "absolute"
             }}>
                 <Background />
 
-            </View>
+            </View> */}
 
             <View style={{
                 position:"absolute",
                 top: 110,
                 zIndex: 4,
-                left: 55
+                left: 30
             }}>
                 <BookStack />
             </View>
@@ -42,7 +44,8 @@ function Timetable(props) {
                     fontSize:36,
                     color: "white",
                     fontWeight: "600",
-                    letterSpacing: 2
+                    letterSpacing: 2,
+                    marginTop: 15*4
                 }}>
                     Timetable
                 </Text>
@@ -81,7 +84,7 @@ function Timetable(props) {
                     </View>
                 </View>
             </View>
-        </View>
+        </ScrollView>
 
     )
 }

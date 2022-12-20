@@ -1,13 +1,18 @@
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Background from "../components/icons/Background";
 import StretchingGirl from "../components/icons/StretchingGirl";
 import SignUpButton from "../components/icons/SignUpButton"
+import { useNavigation } from "@react-navigation/native";
 
 
 function SignUp(props) {
+
+    const navigation = useNavigation();
+
     return (
-        <View style={{
-            flex: 1
+        <ScrollView style={{
+            flex: 1,
+            backgroundColor: "#474C72",
         }}>
             <View style={{
                 position: "absolute",
@@ -37,7 +42,7 @@ function SignUp(props) {
 
             <View style={{
                 position: "absolute",
-                top: 195,
+                top: 170,
                 right: 0
             }}>
                 <StretchingGirl />
@@ -80,14 +85,18 @@ function SignUp(props) {
                         marginBottom: 15 * 3,
                     }} />
 
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={() => navigation.navigate("Home")}
+                style={{
+                    marginBottom: 40*1
+                }}>
                     <SignUpButton />
                 </TouchableOpacity>
             </View>
 
 
 
-        </View>
+        </ScrollView>
     )
 }
 

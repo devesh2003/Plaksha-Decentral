@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, TouchableOpacity, SafeAreaView } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, Linking } from "react-native";
 import Background from "../components/icons/Background";
 import Reset from "../components/icons/Reset";
 import GirlSitting from "../components/icons/GirlSitting";
@@ -10,29 +10,35 @@ import Phone from "../components/icons/Phone";
 
 const links = [
     {
-        name: "TAs",
+        name: "Healthcare",
+        url: "tel:9875990801"
     },
     {
         name: "Maintainance Cell",
+        url: "tel:83605891989"
     },
     {
         name: "House Keeping",
+        url: ""
     },
     {
         name: "Admin Team",
+        url: ""
     },
 ]
 
 function Link(props) {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => {
+            props.link ? Linking.openURL(props.link) : null
+        }}>
             <View style={{
                 backgroundColor: "#637FA4",
                 height: 80,
                 alignItems: "left",
                 justifyContent: "center",
                 paddingLeft: 20,
-                marginVertical: 20
+                marginVertical: 15
             }}>
 
                 <Text style={{
@@ -50,8 +56,10 @@ function Link(props) {
 
 function ImportantContacts(props) {
     return (
-        <View style={{
+        <ScrollView style={{
             width: "100%",
+            backgroundColor: "#7EDAF3",
+            paddingTop: 20*3
         }}>
             <View style={{
                 flex: 1,
@@ -60,13 +68,14 @@ function ImportantContacts(props) {
                 // backgroundColor: "white",
                 position: "absolute"
             }}>
-                <Background />
+                {/* <Background /> */}
 
             </View>
 
             <View style={{
                 position:"absolute",
                 zIndex: 1,
+                left: 10
             }}>
                 {/* <Rasa /> */}
                 {/* <ThreeChildren /> */}
@@ -81,7 +90,7 @@ function ImportantContacts(props) {
                 <Text style={{
                     fontSize:36,
                     color: "white",
-                    letterSpacing: 4,
+                    letterSpacing: 2,
                     textAlign: "right",
                 }}>
                     Important {"\n"}  
@@ -113,17 +122,17 @@ function ImportantContacts(props) {
                         display: "flex",
                         flexDirection: "column",
                         backgroundColor: "#585B84",
-                        marginTop: 58,
+                        marginTop: 90,
                     }}>
                         {links.map((link) => {
                             return (
-                                <Link name={link.name} />
+                                <Link name={link.name} link={link.url} />
                             )
                         }) }
                     </View>
                 </View>
             </View>
-        </View>
+        </ScrollView>
 
     )
 }
