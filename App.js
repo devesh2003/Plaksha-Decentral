@@ -33,16 +33,6 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Group screenOptions={{ headerShown: false }}>
-            
-              {/* <View style={{
-          position: "absolute",
-          top: 10,
-          left: 20,
-          zIndex: 20
-        }}>
-          <Reset />
-
-        </View> */}
               <Stack.Screen name="SignUp" component={SignUp} />
               <Stack.Screen name="Home" component={Home} />
               <Stack.Screen name="Timetable" component={Timetable} />
